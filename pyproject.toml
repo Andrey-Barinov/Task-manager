@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "hexlet-code"
+version = "0.1.0"
+description = ""
+authors = ["Andrey-Barinon <barbpro89@gmail.ru>"]
+readme = "README.md"
+packages = [
+    { include = "task_manager" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^5.0.6"
+python-dotenv = "^1.0.1"
+dj-database-url = "^2.1.0"
+gunicorn = "^22.0.0"
+uvicorn = "^0.29.0"
+
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^7.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
