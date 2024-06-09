@@ -5,12 +5,16 @@
     {% load i18n %}
     {% load django_bootstrap5 %}
     {% bootstrap_css %}
+    {% bootstrap_javascript %}
     <title>{% trans "Task Manager" %}</title>
 </head>
 <body class="bg-light d-flex flex-column min-vh-100">
     {% include "nav.html" %}
     <main role="main" class="container">
+        <div class="container wrapper flex-grow-1">
+            {% bootstrap_messages %}
             {% block content %}{% endblock %}
+        </div>
     </main>
 </body>
 </html>

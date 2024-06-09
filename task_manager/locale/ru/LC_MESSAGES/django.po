@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-24 18:36+0300\n"
+"POT-Creation-Date: 2024-06-05 19:49+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,30 +19,66 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
-#: templates/base.html:8 templates/nav.html:6
+#: mixins.py:8
+msgid "You are not logged in! Please log in."
+msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
+
+#: templates/base.html:9 templates/nav.html:4
 msgid "Task Manager"
 msgstr "Менеджер задач"
 
-#: templates/nav.html:9
-msgid "Users"
-msgstr "Пользователи"
-
-#: templates/nav.html:10
-msgid "Entrance"
-msgstr "Вход"
-
-#: templates/nav.html:11
-msgid "Registration"
-msgstr "Регистрация"
-
-#: templates/index.html:9
-msgid "My final work of the Python Developer course on the Hexlet platform"
-msgstr "Моя финальная работа по курсу Python-разработчик на Хекслете"
-
-#: templates/index.html:8
+#: templates/index.html:7
 msgid "Hello everyone!"
 msgstr "Привет Всем!"
 
-#: templates/index.html:11
+#: templates/index.html:8
+msgid "My final work of the Python Developer course on the Hexlet platform"
+msgstr "Моя финальная работа по курсу Python-разработчик на Хекслете"
+
+#: templates/index.html:10
 msgid "View the code on Github"
 msgstr "Посмотреть код на Github"
+
+#: templates/nav.html:7
+msgid "Users"
+msgstr "Пользователи"
+
+#: templates/nav.html:9
+msgid "Statuses"
+msgstr "Статусы"
+
+#: templates/nav.html:10
+msgid "Tags"
+msgstr "Метки"
+
+#: templates/nav.html:11
+msgid "Tasks"
+msgstr "Задачи"
+
+#: templates/nav.html:15
+msgid "Sign out"
+msgstr "Выйти"
+
+#: templates/nav.html:19 templates/login.html:4 templates/login.html:25
+msgid "Sign in"
+msgstr "Войти"
+
+#: templates/nav.html:20
+msgid "Registration"
+msgstr "Регистрация"
+
+#: forms.py:7 forms.py:10
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: forms.py:13 forms.py:16
+msgid "Password"
+msgstr "Пароль"
+
+#: views.py:19
+msgid "You are logged in"
+msgstr "Вы залогинены"
+
+#: views.py:25
+msgid "Successfully logged out"
+msgstr "Вы разлогинены"
