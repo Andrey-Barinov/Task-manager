@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-08 13:34+0300\n"
+"POT-Creation-Date: 2024-06-11 21:46+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,41 +19,44 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
-#: forms.py:9 forms.py:16 templates/users.html:9
+
+#: forms.py:10 forms.py:17 templates/users.html:9
 msgid "Username"
 msgstr "Имя пользователя"
 
-#: forms.py:10
+#: forms.py:11
 msgid ""
 "Required. 150 characters                                or fewer. Letters, "
 "digits                                and @/./+/-/_ only."
-msgstr "Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_."
+msgstr ""
+"Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./"
+"+/-/_."
 
-#: forms.py:19 forms.py:25
+#: forms.py:21 forms.py:27
 msgid "Password"
 msgstr "Пароль"
 
-#: forms.py:20
+#: forms.py:22
 msgid ""
 "Your password must contain                                  at least 3 "
 "characters."
 msgstr "Ваш пароль должен содержать как минимум 3 символа."
 
-#: forms.py:28 forms.py:34
+#: forms.py:30 forms.py:36
 msgid "Password confirmation"
 msgstr "Подтверждение пароля"
 
-#: forms.py:29
+#: forms.py:31
 msgid ""
 "Enter the same password as before,                                  for "
 "verification."
 msgstr "Для подтверждения введите, пожалуйста, пароль ещё раз."
 
-#: forms.py:42 forms.py:49
+#: forms.py:44 forms.py:51
 msgid "First name"
 msgstr "Имя"
 
-#: forms.py:43 forms.py:54
+#: forms.py:45 forms.py:56
 msgid "Last name"
 msgstr "Фамилия"
 
@@ -73,17 +76,21 @@ msgstr "Зарегистрировать"
 msgid "Deleting user"
 msgstr "Удаление пользователя"
 
-#: templates/delete.html:8
+#: templates/delete.html:6
+msgid "Back to the list of users"
+msgstr "Вернуться к списку пользователей"
+
+#: templates/delete.html:9
 msgid "Are you sure you want to delete"
 msgstr "Вы уверены, что хотите удалить"
 
-#: templates/delete.html:9
+#: templates/delete.html:10
 msgid "Yes, delete"
 msgstr "Да, удалить"
 
 #: templates/update.html:5
-msgid "Updating"
-msgstr "Обновление"
+msgid "Updating user"
+msgstr "Обновление пользователя"
 
 #: templates/update.html:27 templates/users.html:23
 msgid "Update"
@@ -105,14 +112,20 @@ msgstr "Дата создания"
 msgid "Delete"
 msgstr "Удалить"
 
-#: views.py:20
+#: views.py:23
 msgid "User successfully registered"
 msgstr "Пользователь успешно зарегистрирован"
 
-#: views.py:33
+#: views.py:36
 msgid "User successfully updated"
 msgstr "Пользователь успешно изменен"
 
-#: views.py:46
+#: views.py:48
 msgid "User successfully deleted"
 msgstr "Пользователь успешно удален"
+
+#: views.py:49
+msgid ""
+"It is not possible to delete                       user because it is being "
+"used"
+msgstr "Невозможно удалить пользователя, потому что он используется"

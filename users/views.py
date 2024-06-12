@@ -4,7 +4,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from .forms import RegisterUserFrom, UpdateUserForm
 from .mixins import UserPermissionTestMixin
-from task_manager.mixins import UserLoginRequiredMixin
+from task_manager.mixins import UserLoginRequiredMixin, DeleteProtectErrorMixin
 from django.utils.translation import gettext_lazy as _
 
 
@@ -37,10 +37,12 @@ class UpdateUserView(
 class DeleteUserView(
     UserLoginRequiredMixin,
     UserPermissionTestMixin,
-    SuccessMessageMixin,
+    DeleteProtectErrorMixin,
     DeleteView
 ):
     model = get_user_model()
     template_name = 'delete.html'
     success_url = reverse_lazy("users:users")
     success_message = _('User successfully deleted')
+    delete_error_message = _('It is not possible to delete \
+                      user because it is being used')

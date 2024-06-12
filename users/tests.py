@@ -3,6 +3,9 @@ from django.urls import reverse_lazy
 from django.contrib.messages import get_messages
 from django.contrib.auth.views import get_user_model
 from .forms import RegisterUserFrom
+from tasks.models import Task
+from statuses.models import Status
+
 
 test_user1 = {
     "first_name": "test1_first_name",
@@ -47,6 +50,9 @@ class TestCreateUserView(TestCase):
 
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(str(messages[0]), 'Пользователь успешно зарегистрирован')
+
+        new_user = get_user_model().objects.get(username="test_username")
+        self.assertEqual(new_user.username, "test_username")
 
 
 class TestRegisterUserFrom(TestCase):
@@ -136,6 +142,32 @@ class TestDeleteUserView(TestCase):
 
         users = get_user_model()
         self.assertFalse(users.objects.filter(username=test_user1['username']))
+
+    def test_delete_post_user_with_tasks(self):
+        self.client.login(
+            username=test_user1['username'],
+            password=test_user1['password'])
+        status = Status.objects.create(name='Test_status')
+        Task.objects.create(
+            name='test_task',
+            status=status,
+            author=get_user_model().objects.get(username=test_user1['username'])
+        )
+
+        response = self.client.post(reverse_lazy('users:delete', kwargs={'pk': 1}))
+
+        self.assertRedirects(
+            response,
+            reverse_lazy('users:users'),
+            status_code=302,
+            target_status_code=200)
+
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(str(messages[0]),
+                         'Невозможно удалить пользователя, потому что он используется')
+
+        users = get_user_model()
+        self.assertTrue(users.objects.filter(username=test_user1['username']))
 
 
 class TestUpdateUserView(TestCase):

@@ -6,6 +6,7 @@ from django.utils.translation import gettext_lazy as _
 
 class RegisterUserFrom(UserCreationForm):
     username = forms.CharField(max_length=150,
+                               required=True,
                                label=_('Username'),
                                help_text=_("Required. 150 characters \
                                or fewer. Letters, digits \
@@ -16,7 +17,8 @@ class RegisterUserFrom(UserCreationForm):
                                           'placeholder': _('Username')
                                           }))
 
-    password1 = forms.CharField(label=_('Password'),
+    password1 = forms.CharField(required=True,
+                                label=_('Password'),
                                 help_text=_('Your password must contain \
                                  at least 3 characters.'),
 
