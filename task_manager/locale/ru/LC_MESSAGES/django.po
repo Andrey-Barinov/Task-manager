@@ -48,7 +48,7 @@ msgid "Statuses"
 msgstr "Статусы"
 
 #: templates/nav.html:10
-msgid "Tags"
+msgid "Labels"
 msgstr "Метки"
 
 #: templates/nav.html:11

@@ -36,7 +36,7 @@ if RENDER_EXTERNAL_HOSTNAME:
 # Application definition
 
 INSTALLED_APPS = [
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'task_manager',
     'users',
+    'statuses',
+    'tasks',
     'django_bootstrap5'
 ]
 
@@ -108,10 +110,12 @@ AUTH_PASSWORD_VALIDATORS = [
         }
     },
     # {
-    #     'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    #     'NAME': 'django.contrib.auth.password_validation.\
+    #     CommonPasswordValidator',
     # },
     # {
-    #     'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    #     'NAME': 'django.contrib.auth.password_validation.\
+    #     NumericPasswordValidator',
     # },
 ]
 

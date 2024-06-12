@@ -2,6 +2,8 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.utils.translation import gettext_lazy as _
+from django.views.generic.edit import DeletionMixin
+from django.db.models import ProtectedError
 
 
 class UserLoginRequiredMixin:
@@ -16,3 +18,17 @@ class UserLoginRequiredMixin:
 
         else:
             return super().dispatch(request, *args, **kwargs)
+
+
+class DeleteProtectErrorMixin(DeletionMixin):
+    delete_error_message = ''
+    success_message = ''
+
+    def form_valid(self, form):
+        try:
+            super().delete(self.request)
+        except ProtectedError:
+            messages.error(self.request, self.delete_error_message)
+        else:
+            messages.info(self.request, self.success_message)
+        return redirect(self.get_success_url())
