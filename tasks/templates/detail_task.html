@@ -30,14 +30,17 @@
         <div class="col">{% trans 'Сreated at' %}</div>
         <div class="col">{{ task.created_at }}</div>
       </div>
-<!--      <div class="row p-1">-->
-<!--        <div class="col">-->
-<!--          <h6>Метки:</h6>-->
-<!--          <ul>-->
-<!--              <li>rasd18</li>-->
-<!--          </ul>-->
-<!--        </div>-->
-<!--      </div>-->
+      <div class="row p-1">
+        <div class="col">
+          <h6>{% trans 'Labels' %}:</h6>
+          <ul>{% if task.labels.all %}
+              {% for label in task.labels.all %}
+              <li>{{ label.name }}</li>
+              {% endfor %}
+              {% endif %}
+          </ul>
+        </div>
+      </div>
       <div class="row p-1">
         <div class="col">
           <a href="{% url 'tasks:update' task.pk %}">{% trans 'Update' %}</a>

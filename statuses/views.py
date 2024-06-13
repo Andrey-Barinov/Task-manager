@@ -40,5 +40,3 @@ class DeleteStatusView(
     success_message = _('Status successfully deleted')
     delete_error_message = _('It is not possible to delete \
                                 the status because it is in use')
-    # Невозможно удалить статус, потому что он используется
-

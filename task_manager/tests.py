@@ -50,7 +50,7 @@ class TestIndexEngVer(TestCase):
 
         self.assertContains(response, 'Sign out', status_code=200)
         self.assertContains(response, 'Statuses', status_code=200)
-        self.assertContains(response, 'Tags', status_code=200)
+        self.assertContains(response, 'Labels', status_code=200)
         self.assertContains(response, 'Tasks', status_code=200)
 
     def tearDown(self):

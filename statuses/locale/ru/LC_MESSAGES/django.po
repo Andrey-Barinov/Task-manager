@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-12 16:02+0300\n"
+"POT-Creation-Date: 2024-06-12 21:32+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,8 +49,8 @@ msgid "Yes, delete"
 msgstr "Да, удалить"
 
 #: templates/statuses.html:4
-msgid "Tasks"
-msgstr ""
+msgid "Statuses"
+msgstr "Статусы"
 
 #: templates/statuses.html:11
 msgid "Сreated at"
@@ -85,6 +85,3 @@ msgid ""
 "It is not possible to delete                                 the status "
 "because it is in use"
 msgstr "Невозможно удалить статус, потому что он используется"
-
-#~ msgid "Statuses"
-#~ msgstr "Статусы"

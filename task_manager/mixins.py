@@ -30,5 +30,5 @@ class DeleteProtectErrorMixin(DeletionMixin):
         except ProtectedError:
             messages.error(self.request, self.delete_error_message)
         else:
-            messages.info(self.request, self.success_message)
+            messages.success(self.request, self.success_message)
         return redirect(self.get_success_url())
