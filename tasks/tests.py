@@ -4,6 +4,7 @@ from django.contrib.messages import get_messages
 from .forms import CreateTaskFrom
 from .models import Status
 from tasks.models import Task
+from tasks.models import Label
 from django.contrib.auth.views import get_user_model
 
 test_user1 = {
@@ -11,6 +12,13 @@ test_user1 = {
     "last_name": "test1_last_name",
     "username": "test1_username",
     "password": "test1"
+}
+
+test_user2 = {
+    "first_name": "test2_first_name",
+    "last_name": "test2_last_name",
+    "username": "test2_username",
+    "password": "test2"
 }
 
 
@@ -191,11 +199,11 @@ class TestUpdateTaskView(TestCase):
             username=test_user1['username'],
             password=test_user1['password'])
         response = self.client.post(reverse_lazy('tasks:update',
-            kwargs={'pk': 1}),
-            {
-            "name": "changed_test_task",
-            "status": status.pk
-        })
+                                                 kwargs={'pk': 1}),
+                                    {
+                                        "name": "changed_test_task",
+                                        "status": status.pk
+                                    })
 
         self.assertRedirects(
             response,
@@ -275,3 +283,110 @@ class TestTasksView(TestCase):
         self.assertTemplateUsed(response, 'tasks.html')
         self.assertContains(response, "test_task1", status_code=200)
         self.assertContains(response, "test_task2", status_code=200)
+
+    def test_filter_tasks_without_conditions(self):
+        self.client.login(
+            username=test_user1['username'],
+            password=test_user1['password'])
+        response = self.client.get(
+            reverse_lazy('tasks:tasks'),
+            kwargs={
+                'status': '',
+                'executor': '',
+                'label': '',
+            },
+        )
+        self.assertContains(response, "test_task1", status_code=200)
+        self.assertContains(response, "test_task2", status_code=200)
+
+
+class TestTasksViewWithFilter(TestCase):
+    def setUp(self):
+        users = get_user_model()
+        author1 = users.objects.create_user(**test_user1)
+        author2 = users.objects.create_user(**test_user2)
+        self.client.login(
+            username=test_user1['username'],
+            password=test_user1['password'])
+        status1 = Status.objects.create(name='Test_status1')
+        status2 = Status.objects.create(name='Test_status2')
+        label = Label.objects.create(name='test_label1')
+        Task.objects.create(
+            name="test_task1",
+            status=status1,
+            author=author1,
+        )
+        Task.objects.create(
+            name="test_task2",
+            status=status2,
+            author=author2,
+            executor=author1
+
+        ).labels.add(label)
+
+    def test_filter_tasks_without_conditions(self):
+        response = self.client.get(
+            reverse_lazy('tasks:tasks'), {
+                'status': '',
+                'executor': '',
+                'label': '',
+            },
+        )
+        self.assertContains(response, "test_task1", status_code=200)
+        self.assertContains(response, "test_task2", status_code=200)
+
+    def test_filter_users_tasks(self):
+        response = self.client.get(
+            reverse_lazy('tasks:tasks'), {
+                'status': '',
+                'executor': '',
+                'label': '',
+                'self_tasks': 'on'
+            },
+        )
+        self.assertContains(response, "test_task1", status_code=200)
+        self.assertNotContains(response, "test_task2", status_code=200)
+
+    def test_filter_tasks_by_status(self):
+        response = self.client.get(
+            reverse_lazy('tasks:tasks'), {
+                'status': '1',
+                'executor': '',
+                'label': '',
+            },
+        )
+        self.assertContains(response, "test_task1", status_code=200)
+        self.assertNotContains(response, "test_task2", status_code=200)
+
+    def test_filter_tasks_by_label(self):
+        response = self.client.get(
+            reverse_lazy('tasks:tasks'), {
+                'status': '',
+                'executor': '',
+                'label': '1',
+            },
+        )
+        self.assertContains(response, "test_task2", status_code=200)
+        self.assertNotContains(response, "test_task1", status_code=200)
+
+    def test_filter_tasks_by_executor(self):
+        response = self.client.get(
+            reverse_lazy('tasks:tasks'), {
+                'status': '',
+                'executor': '1',
+                'label': '',
+            },
+        )
+        self.assertContains(response, "test_task2", status_code=200)
+        self.assertNotContains(response, "test_task1", status_code=200)
+
+    def test_filter_tasks_by_all_options(self):
+        response = self.client.get(
+            reverse_lazy('tasks:tasks'), {
+                'status': '2',
+                'executor': '1',
+                'label': '1',
+            },
+        )
+        self.assertContains(response, "test_task2", status_code=200)
+        self.assertNotContains(response, "test_task1", status_code=200)

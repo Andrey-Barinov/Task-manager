@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'statuses',
     'tasks',
     'labels',
+    'django_filters',
     'django_bootstrap5'
 ]
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-13 15:36+0300\n"
+"POT-Creation-Date: 2024-06-15 19:55+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,21 +20,29 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: forms.py:11 forms.py:15 templates/tasks.html:10
-msgid "Name"
-msgstr "Имя"
+#: filter.py:12
+msgid "Only your tasks"
+msgstr "Только свои задачи"
 
-#: forms.py:21 forms.py:24 templates/detail_task.html:26
-#: templates/tasks.html:11
+#: filter.py:18 forms.py:22 forms.py:25 templates/detail_task.html:26
+#: templates/tasks.html:31
 msgid "Status"
 msgstr "Статус"
 
-#: forms.py:31 forms.py:34 forms.py:44 templates/detail_task.html:18
-#: templates/tasks.html:13
+#: filter.py:24 forms.py:32 forms.py:35 forms.py:55
+#: templates/detail_task.html:18 templates/tasks.html:33
 msgid "Executor"
 msgstr "Исполнитель"
 
-#: forms.py:43 forms.py:52
+#: filter.py:30 forms.py:42 forms.py:45
+msgid "Label"
+msgstr "Метка"
+
+#: forms.py:12 forms.py:16 templates/tasks.html:30
+msgid "Name"
+msgstr "Имя"
+
+#: forms.py:54 forms.py:63
 msgid "Description"
 msgstr "Описание"
 
@@ -70,11 +78,11 @@ msgstr "Да, удалить"
 msgid "Viewing task"
 msgstr "Просмотр задачи"
 
-#: templates/detail_task.html:14 templates/tasks.html:12
+#: templates/detail_task.html:14 templates/tasks.html:32
 msgid "Author"
 msgstr "Автор"
 
-#: templates/detail_task.html:30 templates/tasks.html:14
+#: templates/detail_task.html:30 templates/tasks.html:34
 msgid "Сreated at"
 msgstr "Дата создания"
 
@@ -82,12 +90,12 @@ msgstr "Дата создания"
 msgid "Labels"
 msgstr "Метки"
 
-#: templates/detail_task.html:46 templates/tasks.html:32
+#: templates/detail_task.html:46 templates/tasks.html:52
 #: templates/update_task.html:21
 msgid "Update"
 msgstr "Изменить"
 
-#: templates/detail_task.html:48 templates/tasks.html:34
+#: templates/detail_task.html:48 templates/tasks.html:54
 msgid "Delete"
 msgstr "Удалить"
 
@@ -95,18 +103,22 @@ msgstr "Удалить"
 msgid "Tasks"
 msgstr "Задачи"
 
+#: templates/tasks.html:22
+msgid "Show"
+msgstr "Показать"
+
 #: templates/update_task.html:5
 msgid "Updating task"
 msgstr "Изменение задачи"
 
-#: views.py:28
+#: views.py:31
 msgid "Task successfully created"
 msgstr "Задача успешно создана"
 
-#: views.py:40
+#: views.py:43
 msgid "Task successfully changed"
 msgstr "Задача успешно изменена"
 
-#: views.py:51
+#: views.py:54
 msgid "Task successfully deleted"
 msgstr "Задача успешно удалена"
