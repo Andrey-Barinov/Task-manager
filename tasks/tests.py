@@ -198,12 +198,13 @@ class TestUpdateTaskView(TestCase):
         self.client.login(
             username=test_user1['username'],
             password=test_user1['password'])
-        response = self.client.post(reverse_lazy('tasks:update',
-                                                 kwargs={'pk': 1}),
-                                    {
-                                        "name": "changed_test_task",
-                                        "status": status.pk
-                                    })
+        response = self.client.post(reverse_lazy(
+            'tasks:update',
+            kwargs={'pk': 1}
+        ),
+            {"name": "changed_test_task",
+             "status": status.pk}
+        )
 
         self.assertRedirects(
             response,

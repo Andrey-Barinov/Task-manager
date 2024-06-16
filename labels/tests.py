@@ -125,12 +125,16 @@ class TestDeleteLabelView(TestCase):
         task = Task.objects.create(
             name='test_task',
             status=status,
-            author=get_user_model().objects.get(username=test_user1['username']),
+            author=get_user_model().objects.get(
+                username=test_user1['username']
+            ),
 
         )
         task.labels.add(label)
 
-        response = self.client.post(reverse_lazy('labels:delete', kwargs={'pk': 2}))
+        response = self.client.post(reverse_lazy(
+            'labels:delete', kwargs={'pk': 2})
+        )
 
         self.assertRedirects(
             response,
@@ -139,8 +143,9 @@ class TestDeleteLabelView(TestCase):
             target_status_code=200)
 
         messages = list(get_messages(response.wsgi_request))
-        self.assertEqual(str(messages[0]),
-                         'Невозможно удалить метку, потому что она используется')
+        self.assertEqual(
+            str(messages[0]),
+            'Невозможно удалить метку, потому что она используется')
 
         self.assertTrue(Label.objects.filter(name='test_label1'))
 

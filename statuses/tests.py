@@ -126,7 +126,9 @@ class TestDeleteStatusView(TestCase):
             author=get_user_model().objects.get(username=test_user1['username'])
         )
 
-        response = self.client.post(reverse_lazy('statuses:delete', kwargs={'pk': 2}))
+        response = self.client.post(reverse_lazy(
+            'statuses:delete', kwargs={'pk': 2})
+        )
 
         self.assertRedirects(
             response,
@@ -135,8 +137,9 @@ class TestDeleteStatusView(TestCase):
             target_status_code=200)
 
         messages = list(get_messages(response.wsgi_request))
-        self.assertEqual(str(messages[0]),
-                         'Невозможно удалить статус, потому что он используется')
+        self.assertEqual(str(
+            messages[0]),
+            'Невозможно удалить статус, потому что он используется')
 
         self.assertTrue(Status.objects.filter(name='Test_status1'))
 

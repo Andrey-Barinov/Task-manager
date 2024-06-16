@@ -8,7 +8,6 @@ from django.utils.translation import gettext_lazy as _
 
 
 class HomePageView(View):
-
     def get(self, request, *args, **kwargs):
         return render(request, 'index.html')
 
@@ -22,5 +21,9 @@ class LoginUserView(SuccessMessageMixin, LoginView):
 class LogoutUserView(LogoutView):
     def dispatch(self, request, *args, **kwargs):
         response = super().dispatch(request, *args, **kwargs)
-        messages.add_message(request, messages.INFO, _('Successfully logged out'))
+        messages.add_message(
+            request,
+            messages.INFO,
+            _('Successfully logged out')
+        )
         return response

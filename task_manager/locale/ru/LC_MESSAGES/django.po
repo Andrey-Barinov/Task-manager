@@ -79,6 +79,6 @@ msgstr "Пароль"
 msgid "You are logged in"
 msgstr "Вы залогинены"
 
-#: views.py:25
+#: views.py:28
 msgid "Successfully logged out"
 msgstr "Вы разлогинены"

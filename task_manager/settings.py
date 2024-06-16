@@ -154,7 +154,6 @@ LOGOUT_REDIRECT_URL = 'home'
 
 LOGIN_URL = "login"
 
-
 ROLLBAR = {
     'access_token': POST_SERVER_ITEM_ACCESS_TOKEN,
     'environment': 'development' if DEBUG else 'production',

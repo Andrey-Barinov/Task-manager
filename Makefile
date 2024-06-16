@@ -21,3 +21,13 @@ lint:
 
 test:
 	poetry run python3 manage.py test
+
+test-coverage:
+	poetry run pytest --cov=gendiff --cov-report xml
+
+selfcheck:
+	poetry check
+
+check: lint test
+
+.PHONY: install test lint selfcheck check build

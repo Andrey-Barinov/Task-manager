@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm
 from django.utils.translation import gettext_lazy as _
 
 
@@ -28,17 +28,24 @@ class RegisterUserFrom(UserCreationForm):
                                            }))
 
     password2 = forms.CharField(label=_('Password confirmation'),
-                                help_text=_('Enter the same password as before, \
-                                 for verification.'),
+                                help_text=_('Enter the same password \
+                                 as before, for verification.'),
 
                                 widget=forms.PasswordInput(
                                     attrs={'class': 'form-control',
-                                           'placeholder': _('Password confirmation')
-                                           }))
+                                           'placeholder': _(
+                                               'Password confirmation'
+                                           )}))
 
     class Meta:
         model = get_user_model()
-        fields = ['first_name', 'last_name', 'username', 'password1', 'password2']
+        fields = [
+            'first_name',
+            'last_name',
+            'username',
+            'password1',
+            'password2'
+        ]
 
         labels = {
             'first_name': _('First name'),
