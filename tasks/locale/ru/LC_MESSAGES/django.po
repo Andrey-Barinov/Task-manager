@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-15 19:55+0300\n"
+"POT-Creation-Date: 2024-06-16 20:58+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,13 +34,17 @@ msgstr "Статус"
 msgid "Executor"
 msgstr "Исполнитель"
 
-#: filter.py:30 forms.py:42 forms.py:45
+#: filter.py:30 forms.py:42
 msgid "Label"
 msgstr "Метка"
 
 #: forms.py:12 forms.py:16 templates/tasks.html:30
 msgid "Name"
 msgstr "Имя"
+
+#: forms.py:45 templates/detail_task.html:35
+msgid "Labels"
+msgstr "Метки"
 
 #: forms.py:54 forms.py:63
 msgid "Description"
@@ -85,10 +89,6 @@ msgstr "Автор"
 #: templates/detail_task.html:30 templates/tasks.html:34
 msgid "Сreated at"
 msgstr "Дата создания"
-
-#: templates/detail_task.html:35
-msgid "Labels"
-msgstr "Метки"
 
 #: templates/detail_task.html:46 templates/tasks.html:52
 #: templates/update_task.html:21

@@ -10,11 +10,14 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
     {% include "nav.html" %}
-    <main role="main" class="container">
-        <div class="container wrapper flex-grow-1">
-            {% bootstrap_messages %}
-            {% block content %}{% endblock %}
-        </div>
-    </main>
+    <div class="container wrapper flex-grow-1">
+        {% bootstrap_messages %}
+        {% block content %}{% endblock %}
+    </div>
+    <footer>
+      <div class="container my-5 pt-4 border-top">
+        <a target="_blank" href="https://ru.hexlet.io">Hexlet</a>
+      </div>
+    </footer>
 </body>
 </html>

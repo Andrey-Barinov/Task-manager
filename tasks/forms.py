@@ -42,7 +42,7 @@ class CreateTaskFrom(forms.ModelForm):
         label=_('Label'),
         widget=forms.SelectMultiple(
             attrs={'class': 'form-select',
-                   'placeholder': _('Label')
+                   'placeholder': _('Labels')
                    })
     )
 
