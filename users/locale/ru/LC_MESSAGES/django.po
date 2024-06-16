@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-11 21:46+0300\n"
+"POT-Creation-Date: 2024-06-16 20:38+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,21 +42,21 @@ msgid ""
 "characters."
 msgstr "Ваш пароль должен содержать как минимум 3 символа."
 
-#: forms.py:30 forms.py:36
+#: forms.py:30 forms.py:37
 msgid "Password confirmation"
 msgstr "Подтверждение пароля"
 
 #: forms.py:31
 msgid ""
-"Enter the same password as before,                                  for "
+"Enter the same password                                  as before, for "
 "verification."
 msgstr "Для подтверждения введите, пожалуйста, пароль ещё раз."
 
-#: forms.py:44 forms.py:51
+#: forms.py:51 forms.py:58
 msgid "First name"
 msgstr "Имя"
 
-#: forms.py:45 forms.py:56
+#: forms.py:52 forms.py:63
 msgid "Last name"
 msgstr "Фамилия"
 
@@ -112,19 +112,19 @@ msgstr "Дата создания"
 msgid "Delete"
 msgstr "Удалить"
 
-#: views.py:23
+#: views.py:20
 msgid "User successfully registered"
 msgstr "Пользователь успешно зарегистрирован"
 
-#: views.py:36
+#: views.py:33
 msgid "User successfully updated"
 msgstr "Пользователь успешно изменен"
 
-#: views.py:48
+#: views.py:46
 msgid "User successfully deleted"
 msgstr "Пользователь успешно удален"
 
-#: views.py:49
+#: views.py:47
 msgid ""
 "It is not possible to delete                       user because it is being "
 "used"

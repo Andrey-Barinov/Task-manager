@@ -24,8 +24,8 @@ test:
 
 test-coverage:
 	poetry run coverage run manage.py test
-	poetry run coverage report -m --include=task_manager/* --omit=task_manager/settings.py,*/migrations/*,*/tests/*,tests.py
-	poetry run coverage xml --include=task_manager/* --omit=task_manager/settings.py,*/migrations/*,*/tests/*,tests.py
+	poetry run coverage report
+	poetry run coverage xml
 
 selfcheck:
 	poetry check
