@@ -3,4 +3,5 @@ from django.contrib.auth.models import PermissionsMixin
 
 
 class User(AbstractUser, PermissionsMixin):
-    pass
+    def __str__(self):
+        return self.get_full_name()
