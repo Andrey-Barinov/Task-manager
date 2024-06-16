@@ -61,7 +61,7 @@ msgstr "Выйти"
 
 #: templates/nav.html:19 templates/login.html:4 templates/login.html:25
 msgid "Sign in"
-msgstr "Войти"
+msgstr "Вход"
 
 #: templates/nav.html:20
 msgid "Registration"
