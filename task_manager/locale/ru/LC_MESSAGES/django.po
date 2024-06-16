@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-05 19:49+0300\n"
+"POT-Creation-Date: 2024-06-16 18:53+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,16 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
-#: mixins.py:8
+
+#: forms.py:7 forms.py:10
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: forms.py:13 forms.py:16
+msgid "Password"
+msgstr "Пароль"
+
+#: mixins.py:10
 msgid "You are not logged in! Please log in."
 msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
 
@@ -38,6 +47,14 @@ msgstr "Моя финальная работа по курсу Python-разра
 #: templates/index.html:10
 msgid "View the code on Github"
 msgstr "Посмотреть код на Github"
+
+#: templates/login.html:4 templates/nav.html:19
+msgid "Sign in"
+msgstr "Вход"
+
+#: templates/login.html:25
+msgid "Enter"
+msgstr "Войти"
 
 #: templates/nav.html:7
 msgid "Users"
@@ -59,26 +76,14 @@ msgstr "Задачи"
 msgid "Sign out"
 msgstr "Выход"
 
-#: templates/nav.html:19 templates/login.html:4 templates/login.html:25
-msgid "Sign in"
-msgstr "Вход"
-
 #: templates/nav.html:20
 msgid "Registration"
 msgstr "Регистрация"
 
-#: forms.py:7 forms.py:10
-msgid "Username"
-msgstr "Имя пользователя"
-
-#: forms.py:13 forms.py:16
-msgid "Password"
-msgstr "Пароль"
-
-#: views.py:19
+#: views.py:18
 msgid "You are logged in"
 msgstr "Вы залогинены"
 
-#: views.py:28
+#: views.py:27
 msgid "Successfully logged out"
 msgstr "Вы разлогинены"
