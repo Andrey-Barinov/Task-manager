@@ -57,7 +57,7 @@ msgstr "Задачи"
 
 #: templates/nav.html:15
 msgid "Sign out"
-msgstr "Выйти"
+msgstr "Выход"
 
 #: templates/nav.html:19 templates/login.html:4 templates/login.html:25
 msgid "Sign in"

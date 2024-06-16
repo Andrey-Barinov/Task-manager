@@ -16,14 +16,14 @@ class TestIndex(TestCase):
 
         self.assertTemplateUsed(response, 'index.html')
         self.assertContains(response, 'Привет Всем!', status_code=200)
-        self.assertContains(response, 'Войти', status_code=200)
+        self.assertContains(response, 'Вход', status_code=200)
         self.assertContains(response, 'Регистрация', status_code=200)
 
     def test_index_with_login_user(self):
         self.client.login(username='test', password='test')
         response = self.client.get(reverse_lazy('home'))
 
-        self.assertContains(response, 'Выйти', status_code=200)
+        self.assertContains(response, 'Выход', status_code=200)
         self.assertContains(response, 'Статусы', status_code=200)
         self.assertContains(response, 'Метки', status_code=200)
         self.assertContains(response, 'Задачи', status_code=200)
