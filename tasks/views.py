@@ -44,10 +44,12 @@ class UpdateTaskView(UserLoginRequiredMixin, SuccessMessageMixin, UpdateView):
     success_url = reverse_lazy('tasks:tasks')
 
 
-class DeleteTaskView(UserLoginRequiredMixin,
-                     SuccessMessageMixin,
-                     AuthorPermissionTestMixin,
-                     DeleteView):
+class DeleteTaskView(
+    UserLoginRequiredMixin,
+    SuccessMessageMixin,
+    AuthorPermissionTestMixin,
+    DeleteView
+):
     model = Task
     template_name = 'delete_task.html'
     success_url = reverse_lazy('tasks:tasks')

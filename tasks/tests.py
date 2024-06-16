@@ -37,8 +37,9 @@ class TestCreateTaskView(TestCase):
             target_status_code=200)
 
         messages = list(get_messages(response.wsgi_request))
-        self.assertEqual(str(messages[0]),
-                         'Вы не авторизованы! Пожалуйста, выполните вход.')
+        self.assertEqual(
+            str(messages[0]),
+            'Вы не авторизованы! Пожалуйста, выполните вход.')
 
     def test_create_task_get(self):
         self.client.login(
@@ -122,8 +123,9 @@ class TestDeleteTaskView(TestCase):
             target_status_code=200)
 
         messages = list(get_messages(response.wsgi_request))
-        self.assertEqual(str(messages[0]),
-                         'Вы не авторизованы! Пожалуйста, выполните вход.')
+        self.assertEqual(
+            str(messages[0]),
+            'Вы не авторизованы! Пожалуйста, выполните вход.')
 
     def test_delete_task_get(self):
         self.client.login(
@@ -179,8 +181,9 @@ class TestUpdateTaskView(TestCase):
             target_status_code=200)
 
         messages = list(get_messages(response.wsgi_request))
-        self.assertEqual(str(messages[0]),
-                         'Вы не авторизованы! Пожалуйста, выполните вход.')
+        self.assertEqual(
+            str(messages[0]),
+            'Вы не авторизованы! Пожалуйста, выполните вход.')
 
     def test_update_task_get(self):
         self.client.login(
@@ -238,8 +241,9 @@ class TestTaskDetailView(TestCase):
             target_status_code=200)
 
         messages = list(get_messages(response.wsgi_request))
-        self.assertEqual(str(messages[0]),
-                         'Вы не авторизованы! Пожалуйста, выполните вход.')
+        self.assertEqual(
+            str(messages[0]),
+            'Вы не авторизованы! Пожалуйста, выполните вход.')
 
     def test_tasks(self):
         self.client.login(
@@ -272,8 +276,9 @@ class TestTasksView(TestCase):
             target_status_code=200)
 
         messages = list(get_messages(response.wsgi_request))
-        self.assertEqual(str(messages[0]),
-                         'Вы не авторизованы! Пожалуйста, выполните вход.')
+        self.assertEqual(
+            str(messages[0]),
+            'Вы не авторизованы! Пожалуйста, выполните вход.')
 
     def test_tasks(self):
         self.client.login(

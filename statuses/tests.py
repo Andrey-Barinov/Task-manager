@@ -28,8 +28,9 @@ class TestCreateStatusView(TestCase):
             target_status_code=200)
 
         messages = list(get_messages(response.wsgi_request))
-        self.assertEqual(str(messages[0]),
-                         'Вы не авторизованы! Пожалуйста, выполните вход.')
+        self.assertEqual(
+            str(messages[0]),
+            'Вы не авторизованы! Пожалуйста, выполните вход.')
 
     def test_create_status_get(self):
         self.client.login(
@@ -45,8 +46,7 @@ class TestCreateStatusView(TestCase):
             username=test_user1['username'],
             password=test_user1['password'])
         response = self.client.post(reverse_lazy('statuses:create'), {
-            "name": "test_status",
-        })
+            "name": "test_status"})
 
         self.assertRedirects(
             response,
@@ -137,8 +137,8 @@ class TestDeleteStatusView(TestCase):
             target_status_code=200)
 
         messages = list(get_messages(response.wsgi_request))
-        self.assertEqual(str(
-            messages[0]),
+        self.assertEqual(
+            str(messages[0]),
             'Невозможно удалить статус, потому что он используется')
 
         self.assertTrue(Status.objects.filter(name='Test_status1'))
@@ -162,8 +162,9 @@ class TestUpdateStatusView(TestCase):
             target_status_code=200)
 
         messages = list(get_messages(response.wsgi_request))
-        self.assertEqual(str(messages[0]),
-                         'Вы не авторизованы! Пожалуйста, выполните вход.')
+        self.assertEqual(
+            str(messages[0]),
+            'Вы не авторизованы! Пожалуйста, выполните вход.')
 
     def test_update_status_get(self):
         self.client.login(

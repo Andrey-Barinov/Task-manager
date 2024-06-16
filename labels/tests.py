@@ -29,8 +29,9 @@ class TestCreateLabelView(TestCase):
             target_status_code=200)
 
         messages = list(get_messages(response.wsgi_request))
-        self.assertEqual(str(messages[0]),
-                         'Вы не авторизованы! Пожалуйста, выполните вход.')
+        self.assertEqual(
+            str(messages[0]),
+            'Вы не авторизованы! Пожалуйста, выполните вход.')
 
     def test_create_label_get(self):
         self.client.login(
@@ -70,8 +71,7 @@ class TestDeleteLabelView(TestCase):
 
     def test_delete_label_get_with_unknown_user(self):
         response = self.client.get(reverse_lazy(
-            'labels:delete', kwargs={'pk': 1})
-        )
+            'labels:delete', kwargs={'pk': 1}))
 
         self.assertRedirects(
             response,
@@ -80,8 +80,9 @@ class TestDeleteLabelView(TestCase):
             target_status_code=200)
 
         messages = list(get_messages(response.wsgi_request))
-        self.assertEqual(str(messages[0]),
-                         'Вы не авторизованы! Пожалуйста, выполните вход.')
+        self.assertEqual(
+            str(messages[0]),
+            'Вы не авторизованы! Пожалуйста, выполните вход.')
 
     def test_delete_label_get(self):
         self.client.login(
@@ -92,9 +93,10 @@ class TestDeleteLabelView(TestCase):
         )
 
         self.assertTemplateUsed(response, 'delete_label.html')
-        self.assertContains(response,
-                            'Вы уверены, что хотите удалить test_label?',
-                            status_code=200)
+        self.assertContains(
+            response,
+            'Вы уверены, что хотите удалить test_label?',
+            status_code=200)
         self.assertContains(response, 'Да, удалить', status_code=200)
 
     def test_delete_label_post(self):
@@ -168,8 +170,9 @@ class TestUpdateLabelView(TestCase):
             target_status_code=200)
 
         messages = list(get_messages(response.wsgi_request))
-        self.assertEqual(str(messages[0]),
-                         'Вы не авторизованы! Пожалуйста, выполните вход.')
+        self.assertEqual(
+            str(messages[0]),
+            'Вы не авторизованы! Пожалуйста, выполните вход.')
 
     def test_update_label_get(self):
         self.client.login(
@@ -189,9 +192,7 @@ class TestUpdateLabelView(TestCase):
         response = self.client.post(reverse_lazy(
             'labels:update',
             kwargs={'pk': 1}),
-            {
-            "name": "changed_test_label",
-        })
+            {"name": "changed_test_label"})
 
         self.assertRedirects(
             response,
@@ -223,8 +224,9 @@ class TestLabelsView(TestCase):
             target_status_code=200)
 
         messages = list(get_messages(response.wsgi_request))
-        self.assertEqual(str(messages[0]),
-                         'Вы не авторизованы! Пожалуйста, выполните вход.')
+        self.assertEqual(
+            str(messages[0]),
+            'Вы не авторизованы! Пожалуйста, выполните вход.')
 
     def test_labels(self):
         self.client.login(

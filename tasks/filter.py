@@ -31,7 +31,8 @@ class TasksFilter(django_filters.FilterSet):
         field_name='labels',
         queryset=Label.objects.all(),
         widget=forms.Select(
-            attrs={'class': 'form-select'}))
+            attrs={'class': 'form-select'})
+    )
 
     def filter_self_tasks(self, queryset, name, value):
         if value:
