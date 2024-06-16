@@ -21,9 +21,7 @@ class CreateTaskFrom(forms.ModelForm):
         required=True,
         label=_('Status'),
         widget=forms.Select(
-            attrs={'class': 'form-select',
-                   'placeholder': _('Status')
-                   })
+            attrs={'class': 'form-select'})
     )
 
     executor = forms.ModelChoiceField(
@@ -31,19 +29,15 @@ class CreateTaskFrom(forms.ModelForm):
         required=False,
         label=_('Executor'),
         widget=forms.Select(
-            attrs={'class': 'form-select',
-                   'placeholder': _('Executor')
-                   })
+            attrs={'class': 'form-select'})
     )
 
     labels = forms.ModelMultipleChoiceField(
         queryset=Label.objects.all(),
         required=False,
-        label=_('Label'),
+        label=_('Labels'),
         widget=forms.SelectMultiple(
-            attrs={'class': 'form-select',
-                   'placeholder': _('Labels')
-                   })
+            attrs={'class': 'form-select'})
     )
 
     class Meta:
