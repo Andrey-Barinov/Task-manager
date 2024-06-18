@@ -99,7 +99,8 @@ class TestLoginEngVer(TestCase):
 
     def test_login_post(self):
         response = self.client.post(
-            reverse_lazy('main:login'), {"username": "test", "password": "test"})
+            reverse_lazy('main:login'),
+            {"username": "test", "password": "test"})
 
         self.assertRedirects(
             response,

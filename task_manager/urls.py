@@ -1,5 +1,4 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 from task_manager import views
 
 app_name = 'task_manager'
