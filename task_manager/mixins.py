@@ -8,7 +8,7 @@ from django.db.models import ProtectedError
 
 class UserLoginRequiredMixin:
     login_message = _('You are not logged in! Please log in.')
-    login_page = reverse_lazy('login')
+    login_page = reverse_lazy('main:login')
 
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:

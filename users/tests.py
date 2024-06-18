@@ -44,7 +44,7 @@ class TestCreateUserView(TestCase):
 
         self.assertRedirects(
             response,
-            reverse_lazy('login'),
+            reverse_lazy('main:login'),
             status_code=302,
             target_status_code=200)
 
@@ -91,7 +91,7 @@ class TestDeleteUserView(TestCase):
 
         self.assertRedirects(
             response,
-            reverse_lazy('login'),
+            reverse_lazy('main:login'),
             status_code=302,
             target_status_code=200)
 
@@ -195,7 +195,7 @@ class TestUpdateUserView(TestCase):
 
         self.assertRedirects(
             response,
-            reverse_lazy('login'),
+            reverse_lazy('main:login'),
             status_code=302,
             target_status_code=200)
 

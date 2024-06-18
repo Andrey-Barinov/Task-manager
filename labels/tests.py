@@ -24,7 +24,7 @@ class TestCreateLabelView(TestCase):
 
         self.assertRedirects(
             response,
-            reverse_lazy('login'),
+            reverse_lazy('main:login'),
             status_code=302,
             target_status_code=200)
 
@@ -75,7 +75,7 @@ class TestDeleteLabelView(TestCase):
 
         self.assertRedirects(
             response,
-            reverse_lazy('login'),
+            reverse_lazy('main:login'),
             status_code=302,
             target_status_code=200)
 
@@ -165,7 +165,7 @@ class TestUpdateLabelView(TestCase):
 
         self.assertRedirects(
             response,
-            reverse_lazy('login'),
+            reverse_lazy('main:login'),
             status_code=302,
             target_status_code=200)
 
@@ -219,7 +219,7 @@ class TestLabelsView(TestCase):
 
         self.assertRedirects(
             response,
-            reverse_lazy('login'),
+            reverse_lazy('main:login'),
             status_code=302,
             target_status_code=200)
 

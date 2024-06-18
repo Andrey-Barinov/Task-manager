@@ -12,7 +12,7 @@ class TestIndex(TestCase):
         model.objects.create_user(username="test", password="test")
 
     def test_index_with_unknown_user(self):
-        response = self.client.get(reverse_lazy('home'))
+        response = self.client.get(reverse_lazy('main:home'))
 
         self.assertTemplateUsed(response, 'index.html')
         self.assertContains(response, 'Привет Всем!', status_code=200)
@@ -21,7 +21,7 @@ class TestIndex(TestCase):
 
     def test_index_with_login_user(self):
         self.client.login(username='test', password='test')
-        response = self.client.get(reverse_lazy('home'))
+        response = self.client.get(reverse_lazy('main:home'))
 
         self.assertContains(response, 'Выход', status_code=200)
         self.assertContains(response, 'Статусы', status_code=200)
@@ -36,7 +36,7 @@ class TestIndexEngVer(TestCase):
 
     def test_index_with_unknown_user(self):
         self.client.cookies.load({settings.LANGUAGE_COOKIE_NAME: "en-US"})
-        response = self.client.get(reverse_lazy('home'))
+        response = self.client.get(reverse_lazy('main:home'))
 
         self.assertTemplateUsed(response, 'index.html')
         self.assertContains(response, 'Hello everyone!', status_code=200)
@@ -46,7 +46,7 @@ class TestIndexEngVer(TestCase):
     def test_index_with_login_user(self):
         self.client.cookies.load({settings.LANGUAGE_COOKIE_NAME: "en-US"})
         self.client.login(username='test', password='test')
-        response = self.client.get(reverse_lazy('home'))
+        response = self.client.get(reverse_lazy('main:home'))
 
         self.assertContains(response, 'Sign out', status_code=200)
         self.assertContains(response, 'Statuses', status_code=200)
@@ -63,7 +63,7 @@ class TestLogin(TestCase):
         model.objects.create_user(username="test", password="test")
 
     def test_login_get(self):
-        response = self.client.get(reverse_lazy('login'))
+        response = self.client.get(reverse_lazy('main:login'))
 
         self.assertTemplateUsed(response, 'login.html')
         self.assertContains(response, 'Имя пользователя', status_code=200)
@@ -71,11 +71,12 @@ class TestLogin(TestCase):
 
     def test_login_post(self):
         response = self.client.post(
-            reverse_lazy('login'), {"username": "test", "password": "test"})
+            reverse_lazy('main:login'),
+            {"username": "test", "password": "test"})
 
         self.assertRedirects(
             response,
-            reverse_lazy('home'),
+            reverse_lazy('main:home'),
             status_code=302,
             target_status_code=200)
 
@@ -90,7 +91,7 @@ class TestLoginEngVer(TestCase):
         self.client.cookies.load({settings.LANGUAGE_COOKIE_NAME: "en-US"})
 
     def test_login_get(self):
-        response = self.client.get(reverse_lazy('login'))
+        response = self.client.get(reverse_lazy('main:login'))
 
         self.assertTemplateUsed(response, 'login.html')
         self.assertContains(response, 'Username', status_code=200)
@@ -98,11 +99,11 @@ class TestLoginEngVer(TestCase):
 
     def test_login_post(self):
         response = self.client.post(
-            reverse_lazy('login'), {"username": "test", "password": "test"})
+            reverse_lazy('main:login'), {"username": "test", "password": "test"})
 
         self.assertRedirects(
             response,
-            reverse_lazy('home'),
+            reverse_lazy('main:home'),
             status_code=302,
             target_status_code=200)
 
@@ -120,12 +121,13 @@ class TestLogout(TestCase):
 
     def test_logout_post(self):
         self.client.post(
-            reverse_lazy('login'), {"username": "test", "password": "test"})
-        response = self.client.post(reverse_lazy('logout'))
+            reverse_lazy('main:login'),
+            {"username": "test", "password": "test"})
+        response = self.client.post(reverse_lazy('main:logout'))
 
         self.assertRedirects(
             response,
-            reverse_lazy('home'),
+            reverse_lazy('main:home'),
             status_code=302,
             target_status_code=200)
 
@@ -141,12 +143,13 @@ class TestLogoutEngVer(TestCase):
     def test_logout_post(self):
         self.client.cookies.load({settings.LANGUAGE_COOKIE_NAME: "en-US"})
         self.client.post(
-            reverse_lazy('login'), {"username": "test", "password": "test"})
-        response = self.client.post(reverse_lazy('logout'))
+            reverse_lazy('main:login'),
+            {"username": "test", "password": "test"})
+        response = self.client.post(reverse_lazy('main:logout'))
 
         self.assertRedirects(
             response,
-            reverse_lazy('home'),
+            reverse_lazy('main:home'),
             status_code=302,
             target_status_code=200)
 

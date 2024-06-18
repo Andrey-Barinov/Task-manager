@@ -32,7 +32,7 @@ class TestCreateTaskView(TestCase):
 
         self.assertRedirects(
             response,
-            reverse_lazy('login'),
+            reverse_lazy('main:login'),
             status_code=302,
             target_status_code=200)
 
@@ -118,7 +118,7 @@ class TestDeleteTaskView(TestCase):
 
         self.assertRedirects(
             response,
-            reverse_lazy('login'),
+            reverse_lazy('main:login'),
             status_code=302,
             target_status_code=200)
 
@@ -176,7 +176,7 @@ class TestUpdateTaskView(TestCase):
 
         self.assertRedirects(
             response,
-            reverse_lazy('login'),
+            reverse_lazy('main:login'),
             status_code=302,
             target_status_code=200)
 
@@ -236,7 +236,7 @@ class TestTaskDetailView(TestCase):
 
         self.assertRedirects(
             response,
-            reverse_lazy('login'),
+            reverse_lazy('main:login'),
             status_code=302,
             target_status_code=200)
 
@@ -271,7 +271,7 @@ class TestTasksView(TestCase):
 
         self.assertRedirects(
             response,
-            reverse_lazy('login'),
+            reverse_lazy('main:login'),
             status_code=302,
             target_status_code=200)
 
