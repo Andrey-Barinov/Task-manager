@@ -9,4 +9,7 @@ urlpatterns = [
          include('task_manager.statuses.urls', namespace='statuses')),
     path('tasks/', include('task_manager.tasks.urls', namespace='tasks')),
     path('labels/', include('task_manager.labels.urls', namespace='labels')),
+    # API_urls
+    path('api/v1/', include('task_manager.api.urls')),
+    path('api/v1/', include('rest_framework.urls', namespace='rest_framework')),
 ]

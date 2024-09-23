@@ -50,7 +50,10 @@ INSTALLED_APPS = [
     'task_manager.tasks',
     'task_manager.labels',
     'django_filters',
-    'django_bootstrap5'
+    'django_bootstrap5',
+    'rest_framework',
+    'task_manager.api',
+    'task_manager.api.users_api',
 ]
 
 MIDDLEWARE = [
@@ -166,4 +169,11 @@ ROLLBAR = {
     'environment': 'development' if DEBUG else 'production',
     'branch': 'master',
     'root': str(BASE_DIR),
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
 }
