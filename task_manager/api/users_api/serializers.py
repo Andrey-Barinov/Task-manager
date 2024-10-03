@@ -6,13 +6,23 @@ from django.contrib.auth.password_validation import validate_password
 class UsersSerializer(serializers.ModelSerializer):
     first_name = serializers.CharField(required=True)
     last_name = serializers.CharField(required=True)
-    password = serializers.CharField(write_only=True, required=True, validators=[validate_password])
+    password = serializers.CharField(
+        write_only=True, required=True, validators=[validate_password]
+    )
     password2 = serializers.CharField(write_only=True, required=True)
     date_joined = serializers.DateTimeField(read_only=True)
 
     class Meta:
         model = get_user_model()
-        fields = ('pk', 'username', 'password', 'password2', 'first_name', 'last_name', 'date_joined')
+        fields = (
+            'pk',
+            'username',
+            'password',
+            'password2',
+            'first_name',
+            'last_name',
+            'date_joined'
+        )
         extra_kwargs = {
             'first_name': {'required': True},
             'last_name': {'required': True}
@@ -20,7 +30,9 @@ class UsersSerializer(serializers.ModelSerializer):
 
     def validate(self, attrs):
         if attrs['password'] != attrs['password2']:
-            raise serializers.ValidationError({"password": "Пароли не совпадают"})
+            raise serializers.ValidationError(
+                {"password": "Пароли не совпадают"}
+            )
 
         return attrs
 
@@ -35,4 +47,3 @@ class UsersSerializer(serializers.ModelSerializer):
         user.save()
 
         return user
-

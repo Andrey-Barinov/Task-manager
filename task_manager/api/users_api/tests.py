@@ -155,7 +155,10 @@ class UsersAPITests(APITestCase):
             'Учетные Данные Не Были Предоставлены.'
         )
 
-        self.client.login(username=user1['username'], password=user1['password'])
+        self.client.login(
+            username=user1['username'],
+            password=user1['password']
+        )
 
         response_with_auth = self.client.patch(
             '/api/v1/users/1/',
@@ -209,7 +212,10 @@ class UsersAPITests(APITestCase):
 
     def test_delete_user(self):
 
-        self.client.login(username=user1['username'], password=user1['password'])
+        self.client.login(
+            username=user1['username'],
+            password=user1['password']
+        )
 
         response = self.client.delete('/api/v1/users/1/')
 
@@ -217,4 +223,3 @@ class UsersAPITests(APITestCase):
             response.status_code,
             status.HTTP_204_NO_CONTENT
         )
-
